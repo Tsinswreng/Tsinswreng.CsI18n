@@ -10,15 +10,15 @@ public interface II18n{
 	public str this[II18nKey Key]{get;}
 }
 
-public static class AppExtnErrItem{
-	public static I18nKey ToI18nKey(this IErrNode z){
-		return new I18nKey{
-			RelaPathSegs=["Error", ..z.RelaPathSegs],
-			DfltValueObj = z.DfltValueObj
-			,Parent = z.Parent
-			,Children = z.Children
-		};
-	}
-}
+// public static class AppExtnErrItem{
+// 	public static I18nKey ToI18nKey(this IErrNode z){
+// 		return new I18nKey{
+// 			RelaPathSegs=["Error", ..z.RelaPathSegs],
+// 			DfltValueObj = z.DfltValueObj
+// 			,Parent = z.Parent
+// 			,Children = z.Children
+// 		};
+// 	}
+// }
 
 
