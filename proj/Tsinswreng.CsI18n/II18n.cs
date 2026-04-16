@@ -3,11 +3,14 @@ using Tsinswreng.CsErr;
 
 namespace Tsinswreng.CsI18n;
 
+public delegate str OnKeyNotFound(II18n Self, II18nKey Key, params obj[] Args);
+
 [Doc("國際化/本地化")]
 public interface II18n{
 	[Doc(@$"")]
 	public str Get(II18nKey Key, params obj[] Args);
 	public str this[II18nKey Key]{get;}
+	public OnKeyNotFound? OnKeyNotFound{get;set;}
 }
 
 // public static class AppExtnErrItem{
