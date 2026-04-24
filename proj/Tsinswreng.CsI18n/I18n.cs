@@ -8,13 +8,14 @@ public class I18n:II18n{
 	public I18n(ICfgAccessor CfgAccessor){
 		this.CfgAccessor = CfgAccessor;
 	}
-	public ICfgAccessor CfgAccessor{get;set;}
+	public I18n(){}
+	public ICfgAccessor? CfgAccessor{get;set;}
 	MessageFormatter MsgFmt = new();
 	public OnKeyNotFound? OnKeyNotFound{get;set;} = (Self, Key, Args)=>{
 		return Key.GetFullPathSegs().Last();
 	};
 	public str Get(II18nKey Key, params obj[] Args){
-		if(!CfgAccessor.TryGet(Key.GetFullPathSegs(), out var Value)){
+		if(CfgAccessor?.TryGet(Key.GetFullPathSegs(), out var Value) != true){
 			if(OnKeyNotFound is null){
 				return "";
 			}
